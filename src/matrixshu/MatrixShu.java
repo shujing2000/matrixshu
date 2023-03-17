@@ -16,6 +16,7 @@ package matrixshu;
  * 
  * Voorzie ook een mutable versie, waarbij de methodes scale (tegenhanger van scaled) en add 
  * (tegenhanger van plus) de matrix aanpassen waarop de methode opgeroepen wordt.
+ * 
  * Voorzie twee versies van de immutable versie: één waarbij de elementen intern opgeslagen worden in een
  * array in row major order, en één waarbij de elementen intern opgeslagen worden in een array in column 
  * major order. De API van beide versies moet identiek zijn (zowel qua syntax als qua semantiek 
@@ -35,11 +36,6 @@ package matrixshu;
  * de methodes contractueel.
  */
 
-/**
- * 
- * @immutable
- *
- */
 public class MatrixShu {
 	
 	/**
@@ -125,27 +121,27 @@ public class MatrixShu {
 	/**
 	 * @creates | result
 	 */
-	public double[][] scaled(int number){
+	public void scaled(int number){
 		double[][] A = new double[getAmountOfRows()][getAmountOfColumns()];
 		for (int rij = 0; rij < getAmountOfRows(); rij++) {
 			for (int kolom = 0; kolom < getAmountOfColumns(); kolom++) {
 				A[rij][kolom] = getMatrix()[rij][kolom]*number;
 			}
 		}
-		return A;
+		matrix = A;
 	}
 	
 	/**
 	 * @creates | result
 	 */
-	public double[][] plus(double[][] A){
+	public void plus(double[][] A){
 		double[][] B = new double[getAmountOfRows()][getAmountOfColumns()];
 		for (int rij = 0; rij < getAmountOfRows(); rij++) {
 			for (int kolom = 0; kolom < getAmountOfColumns(); kolom++) {
 				B[rij][kolom] = A[rij][kolom] + getMatrix()[rij][kolom];
 			}
 		}
-		return B;
+		matrix = B;
 	}
 
 }
