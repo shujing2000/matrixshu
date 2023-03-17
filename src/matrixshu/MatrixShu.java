@@ -16,16 +16,19 @@ package matrixshu;
  * 
  * Voorzie ook een mutable versie, waarbij de methodes scale (tegenhanger van scaled) en add 
  * (tegenhanger van plus) de matrix aanpassen waarop de methode opgeroepen wordt.
+ * 
  * Voorzie twee versies van de immutable versie: één waarbij de elementen intern opgeslagen worden in een
  * array in row major order, en één waarbij de elementen intern opgeslagen worden in een array in column 
  * major order. De API van beide versies moet identiek zijn (zowel qua syntax als qua semantiek 
  * (= observeerbaar gedrag)), en ze moeten precies dezelfde testsuite doen slagen. Voorzie een testsuite 
- * die alle code van beide versies covert (behalve code die enkel uitgevoerd wordt in geval van een fout). 
+ * die alle code van beide versies covert (behalve code die enkel uitgevoerd wordt in geval van een fout).
+ *  
  * Voorzie ook twee versies van de mutable versie: één waarbij de elementen intern opgeslagen worden in 
  * een array in row major order, en één waarbij de elementen intern opgeslagen worden in een array van 
  * arrays. De API van beide versies moet identiek zijn (zowel qua syntax als qua semantiek (= observeerbaar
  * gedrag)), en ze moeten precies dezelfde testsuite doen slagen. Voorzie een testsuite die alle code van 
  * beide versies covert (behalve code die enkel uitgevoerd wordt in geval van een fout).
+ * 
  * Voorzie telkens volledige publieke en interne formele documentatie. (Dat houdt ook in dat je voor elke 
  * constructor en elke methode met behulp van @inspects- en @mutates-clausules specificeert welke 
  * klant-zichtbare objecten door die constructor or methode geïnspecteerd of gewijzigd worden, tenzij 
