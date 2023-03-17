@@ -45,29 +45,107 @@ public class MatrixShu {
 	/**
 	 * @representationObjects
 	 */
-	private double[] rij;
+	
 	private double[][] matrix;
 	
-	public int getAmountOfRows() {throw new RuntimeException("not yet implemented");}
+	public int getAmountOfRows() {
+		int aantalRijen = 0;
+		for (int i = 0; i < getMatrix().length; i++) {
+			aantalRijen +=1;
+		}
+		return aantalRijen;
+	}
 	
-	public int getAmountOfColumns() {throw new RuntimeException("not yet implemented");}
+	public int getAmountOfColumns() {
+		int aantalKolommen = 0;
+		for(int i = 0; i < matrix[0].length; i++) {
+			aantalKolommen +=1;
+		}
+		return aantalKolommen;
+	}
 	
-	public int getElement(int row, int column) {throw new RuntimeException("not yet implemented");}
+	public double getElement(int row, int column) {
+		double getal = matrix[row][column];
+		return getal;
+	}
 	
-	public int getElementsRowMajor() {throw new RuntimeException("not yet implemented");}
+	public double[] getElementsRowMajor() {
+		double[] array = new double[getAmountOfColumns()*getAmountOfRows()];
+		for (int i = 0; i <array.length; i++) {
+			for (int j = 0; j < getAmountOfRows(); j++) {
+				for(int k = 0; k <getAmountOfColumns(); k++) {
+					array[i] = matrix[j][k];
+				}
+			}
+		}
+		return array;
+	}
 	
-	public int getElementsColumnMajor() {throw new RuntimeException("not yet implemented");}
+	/**
+	 * @creates | result
+	 */
+	public double[] getElementsColumnMajor() {
+		double[] array = new double[getAmountOfColumns()*getAmountOfRows()];
+		for (int i = 0; i <array.length; i++) {
+			for (int j = 0; j < getAmountOfColumns(); j++) {
+				for(int k = 0; k <getAmountOfRows(); k++) {
+					array[i] = matrix[k][j];
+				}
+			}
+		}
+		return array;
+	}
 	
-	public int getElementsAsArrayOfRows() {throw new RuntimeException("not yet implemented");}
 	
+	/**
+	 * @creates | this
+	 */
+	public double[][] getMatrix() {
+		return matrix.clone();
+	}
 	
-	public MatrixShu(int rows, int columns) {throw new RuntimeException("not yet implemented");}
+	/**
+	 * 
+	 * @pre | rows >= 0
+	 * @pre | columns >= 0
+	 * @post | getMatrix().length == columns
+	 */
+	public MatrixShu(int rows, int columns) {
+		if (rows == 0 && columns > 0) {
+			throw new IllegalArgumentException("Deze matrix bestaat niet. Er zijn geen rijen.");
+		}
+		if (columns == 0 && rows > 0) {
+			throw new IllegalArgumentException("Deze matrix bestaat niet. Er zijn geen kolommen");
+		}
+		matrix = new double[rows][columns];
+		
+	}
 	
 	//mutatoren
-	public double[][] scaled(int number){throw new RuntimeException("not yet implemented");}
+	/**
+	 * @creates | result
+	 */
+	public double[][] scaled(int number){
+		double[][] A = new double[getAmountOfRows()][getAmountOfColumns()];
+		for (int rij = 0; rij < getAmountOfRows(); rij++) {
+			for (int kolom = 0; kolom < getAmountOfColumns(); kolom++) {
+				A[rij][kolom] = getMatrix()[rij][kolom]*number;
+			}
+		}
+		return A;
+	}
 	
-	public double[][] plus(double[][] A){throw new RuntimeException("not yet implemented");}
-	
-		
+	/**
+	 * @creates | result
+	 */
+	public double[][] plus(double[][] A){
+		double[][] B = new double[getAmountOfRows()][getAmountOfColumns()];
+		for (int rij = 0; rij < getAmountOfRows(); rij++) {
+			for (int kolom = 0; kolom < getAmountOfColumns(); kolom++) {
+				B[rij][kolom] = A[rij][kolom] + getMatrix()[rij][kolom];
+			}
+		}
+		return B;
+	}
 
 }
