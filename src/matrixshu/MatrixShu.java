@@ -39,16 +39,13 @@ package matrixshu;
  */
 
 /**
- * 
  * @immutable
- *
  */
 public class MatrixShu {
 	
 	/**
 	 * @representationObjects
 	 */
-	
 	private double[][] matrix;
 	
 	public int getAmountOfRows() {
@@ -98,8 +95,7 @@ public class MatrixShu {
 		}
 		return array;
 	}
-	
-	
+
 	/**
 	 * @creates | this
 	 */
@@ -108,7 +104,6 @@ public class MatrixShu {
 	}
 	
 	/**
-	 * 
 	 * @pre | rows >= 0
 	 * @pre | columns >= 0
 	 * @post | getMatrix().length == columns
@@ -124,7 +119,7 @@ public class MatrixShu {
 		
 	}
 	
-	//mutatoren
+	// scaled en plus zijn geen mutatoren, maar ook afgeleide getters!
 	/**
 	 * @creates | result
 	 */
